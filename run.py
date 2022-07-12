@@ -61,6 +61,6 @@ nu_ex = params['eta'] * nu_th
 ratio = nu_ex/nu_th
 
 
-
+print(f"Current Netork parameters: Nu_ex/Nu_th: {ratio}, Delay: 1.5ms, g: {params['g']}")
 raster(test[0], test[1], params.get('rec_start'), params.get('rec_stop'))
 #nest.raster_plot.from_device(network.spike_recorder_ex)
