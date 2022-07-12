@@ -32,8 +32,8 @@ params = {
     'eta':  5,                          # relative external rate
     'J':    0.1,                        # postsynaptic amplitude in mV
     'neuron_params': neuron_params,     # single neuron parameters
-    'n_rec_ex':  600,                   # excitatory neurons to be recorded from
-    'n_rec_in':  150,                   # inhibitory neurons to be recorded from
+    'n_rec_ex':  6000,                   # excitatory neurons to be recorded from
+    'n_rec_in':  2000,                   # inhibitory neurons to be recorded from
     'rec_start': 600.,                  # start point for recording spike trains
     'rec_stop':  800.                   # end points for recording spike trains
     }

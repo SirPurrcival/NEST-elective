@@ -63,7 +63,7 @@ class Network():
         # Then we connect the external drive to the neurons with weight J_ex
         ## Your code here
         nest.Connect(self.p_noise, self.neurons,
-                     syn_spec={'weight': self.J_ex, 'delay': 1.5})
+                     syn_spec={'weight': self.J_ex})
 
         # Then we connect the the neurons to the spike detectors
         # Note: You can use slicing for nest node collections as well
@@ -97,16 +97,16 @@ class Network():
         self.tmp_ex = self.spike_times_ex[0]['events']['times'][self.idx_ex]
 
         self.spikes_ex = np.split(self.tmp_ex, np.where(np.diff(self.sorted_sx) > 0)[0] + 1)
-        for a in self.spikes_ex:
-            a.sort()
+        #for a in self.spikes_ex:
+        #    a.sort()
         
         self.idx_in = np.argsort(self.spike_times_in[0]['events']['senders'])
         self.sorted_si = self.spike_times_in[0]['events']['senders'][self.idx_in]
         self.tmp_in = self.spike_times_in[0]['events']['times'][self.idx_in]
 
         self.spikes_in = np.split(self.tmp_in, np.where(np.diff(self.sorted_si) > 0)[0] + 1)
-        for b in self.spikes_in:
-            b.sort()
+        #for b in self.spikes_in:
+        #    b.sort()
         #for item in self.spike_times_ex:
         #    self.spikes_ex.append(np.sort(item['events']['times']))
         # 
@@ -152,14 +152,14 @@ def raster(spikes_ex, spikes_in, rec_start, rec_stop, figsize=(9, 5)):
                  linestyle='',
                  marker='o',
                  color='r',
-                 markersize=2)
+                 markersize=1)
     for i in range(n_rec_ex):
         ax1.plot(spikes_ex[i],
                  (i + n_rec_in)*np.ones(len(spikes_ex[i])),
                  linestyle='',
                  marker='o',
                  color='b',
-                 markersize=2)
+                 markersize=1)
 
     ax2 = ax2.hist(spikes_ex_total,
                    range=(rec_start,rec_stop),
